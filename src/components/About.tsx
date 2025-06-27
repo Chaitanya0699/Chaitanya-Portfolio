@@ -30,7 +30,7 @@ const About = () => {
           Novisync India Pvt Ltd (Cadrac Labs)
         </a>
       ),
-    period: "Jan 2023 - Present",
+    period: "April 2024 - Present",
     description: "Leading design initiatives for mobile and web applications, conducting user research, and creating design systems.",
     achievements: [
       "Improved user engagement by 40% through redesigned mobile app interface",
