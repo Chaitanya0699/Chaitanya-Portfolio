@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Eye, Heart } from 'lucide-react';
+import { ExternalLink, Github, Eye, Heart ,Figma} from 'lucide-react';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -140,7 +140,7 @@ const Projects = () => {
                       <ExternalLink size={20} />
                     </button>
                     <button className="bg-white/20 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/30 transition-colors border border-white/30">
-                      <Github size={20} />
+                      <Figma size={20} />
                     </button>
                   </div>
                 </div>
@@ -183,9 +183,11 @@ const Projects = () => {
             <p className="text-gray-600 mb-6">
               I'm always excited to take on new challenges and create amazing user experiences.
             </p>
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
-              Let's Discuss Your Project
-            </button>
+           <a href="#contact">
+              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+                Let's Discuss Your Project
+              </button>
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { InlineWidget } from "react-calendly";
+import { FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import {
   Mail, Phone, MapPin, Send, Linkedin,
@@ -89,7 +90,7 @@ const Contact = () => {
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"> Amazing?</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            I'm Chaitanya Pajjuri, and I'm always excited to discuss new projects, creative ideas, or opportunities 
+            I'm Chaitanya Pajjuri, and I'm always excited to discuss new projects, creative ideas, or opportunities
             to be part of your vision. Let's turn your ideas into beautiful, functional designs.
           </p>
         </div>
@@ -147,8 +148,8 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                As a growing UI/UX designer with 1.5 years of experience, I'm eager to take on new challenges 
-                and collaborate on exciting projects. Whether you have a specific project in mind or just want 
+                As a growing UI/UX designer with 1.5 years of experience, I'm eager to take on new challenges
+                and collaborate on exciting projects. Whether you have a specific project in mind or just want
                 to chat about design, I'd love to hear from you!
               </p>
             </div>
@@ -180,10 +181,16 @@ const Contact = () => {
                 <Calendar className="text-purple-400 mx-auto mb-2 group-hover:scale-110 transition-transform" size={24} />
                 <p className="text-white font-medium text-sm">Schedule Call</p>
               </button>
-              <button className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center hover:bg-white/20 transition-colors group">
-                <Coffee className="text-yellow-400 mx-auto mb-2 group-hover:scale-110 transition-transform" size={24} />
-                <p className="text-white font-medium text-sm">Coffee Chat</p>
-              </button>
+              <a
+                href="https://wa.me/917036650028?text=Hi%20Chaitanya%2C%20I%27m%20interested%20in%20connecting%20with%20you%20via%20WhatsApp."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center hover:bg-white/20 transition-colors group w-full">
+                  <FaWhatsapp className="text-green-400 mx-auto mb-2 group-hover:scale-110 transition-transform" size={24} />
+                  <p className="text-white font-medium text-sm">Whatsapp</p>
+                </button>
+              </a>
             </div>
 
             {showCalendly && (
