@@ -1,10 +1,15 @@
 import React from 'react';
 import { Heart, ArrowUp } from 'lucide-react';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // ✅ Dynamic Experience
+  const startDate = new Date('2024-04-01'); // Replace with your real start date
+  const now = new Date();
+  const experienceInYears = ((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365)).toFixed(1);
 
   return (
     <footer className="bg-slate-900 text-white py-16 relative overflow-hidden">
@@ -21,7 +26,7 @@ const Footer = () => {
               Chaitanya Pajjuri
             </h3>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-              A passionate UI/UX designer with 1.5 years of experience, dedicated to creating 
+              A passionate UI/UX designer with {experienceInYears} years of experience, dedicated to creating 
               meaningful digital experiences that make a difference in people's lives.
             </p>
           </div>
@@ -39,13 +44,12 @@ const Footer = () => {
 
           {/* Divider */}
           <div className="border-t border-gray-800 pt-8 mb-8">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center space-x-2 text-gray-400">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center space-x-2 text-gray-400 justify-center">
                 <span>Crafted with</span>
                 <Heart size={16} className="text-red-500 fill-current animate-pulse" />
                 <span>by Chaitanya Pajjuri</span>
               </div>
-              
               <button 
                 onClick={scrollToTop}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300 group"
@@ -58,7 +62,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center">
             <p className="text-gray-500 text-sm">
-              © 2024 Chaitanya Pajjuri. All rights reserved.
+              © {new Date().getFullYear()} Chaitanya Pajjuri. All rights reserved.
             </p>
             <p className="text-gray-600 text-xs mt-2">
               Building the future, one pixel at a time ✨

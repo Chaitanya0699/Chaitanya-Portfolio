@@ -1,17 +1,26 @@
 import React from 'react';
 import { ArrowDown, Download, Mail, Sparkles } from 'lucide-react';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   const scrollToAbout = () => {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const scrollToContact = () => {
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // ✅ Dynamic Experience Years
+  const startDate = new Date('2024-04-01'); // Replace with your actual start date
+  const now = new Date();
+  const experienceInYears = ((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365)).toFixed(1);
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="absolute inset-0 bg-hero-pattern opacity-20"></div>
-        
+
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -39,10 +48,10 @@ const Hero = () => {
               </h2>
               <div className="flex items-center gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
-                <span className="text-purple-300 font-medium">1.5 Years Experience</span>
+                <span className="text-purple-300 font-medium">{experienceInYears} Years Experience</span>
               </div>
             </div>
-            
+
             <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
               Passionate about crafting intuitive digital experiences that bridge the gap between 
               user needs and business goals. Specializing in modern, accessible design solutions.
@@ -51,9 +60,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <button
                 className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-medium hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                onClick={() => {
-                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
+                onClick={scrollToContact}
               >
                 <Mail size={20} className="group-hover:rotate-12 transition-transform" />
                 Let's Connect
@@ -81,7 +88,7 @@ const Hero = () => {
                 <div className="text-purple-300 text-sm">Happy Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">1.5</div>
+                <div className="text-3xl font-bold text-white mb-1">{experienceInYears}</div>
                 <div className="text-purple-300 text-sm">Years Exp</div>
               </div>
             </div>
@@ -99,7 +106,7 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating Design Elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl rotate-12 animate-float shadow-2xl shadow-yellow-500/25"></div>
               <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl -rotate-12 animate-float-delayed shadow-2xl shadow-pink-500/25"></div>
@@ -110,7 +117,7 @@ const Hero = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <button 
+          <button
             onClick={scrollToAbout}
             className="animate-bounce p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors border border-white/20"
           >

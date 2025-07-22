@@ -4,12 +4,18 @@ import { FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import {
   Mail, Phone, MapPin, Send, Linkedin,
-  Github, Dribbble, Calendar, Coffee, X
+  Github, Dribbble, Calendar, Coffee, X,
+  Figma
 } from 'lucide-react';
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const [showCalendly, setShowCalendly] = useState(false);
+
+  // ✅ Dynamic Experience Years
+  const startDate = new Date('2024-04-01'); // replace with your actual start date
+  const now = new Date();
+  const experienceInYears = ((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365)).toFixed(1);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,44 +34,44 @@ const Contact = () => {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="text-purple-600" size={24} />,
-      title: "Email",
-      value: "chaitanya.pajjuri@gmail.com",
-      link: "mailto:chaitanya.pajjuri@gmail.com"
-    },
-    {
-      icon: <Phone className="text-green-600" size={24} />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
-    },
-    {
-      icon: <MapPin className="text-red-600" size={24} />,
-      title: "Location",
-      value: "India",
-      link: null
-    }
-  ];
-
+ const contactInfo = [
+  {
+    icon: <Mail className="text-purple-600" size={24} />,
+    title: "Email",
+    value: "chaitanyapajjuri3@gmail.com",
+    link: "mailto:chaitanyapajjuri3@gmail.com",
+  },
+  {
+    icon: <Phone className="text-green-600" size={24} />,
+    title: "Phone",
+    value: "+91 70366 50028", // ✅ This must be a **string**
+    link: "tel:+917036650028",
+  },
+  {
+    icon: <MapPin className="text-red-600" size={24} />,
+    title: "Location",
+    value: "India",
+    link: null,
+  },
+];
   const socialLinks = [
     {
       icon: <Linkedin size={24} />,
       name: "LinkedIn",
-      url: "#",
+      url: "https://www.linkedin.com/in/chaitanya-pajjuri-563a7715a/",
+
       color: "hover:text-blue-600 hover:bg-blue-50"
     },
     {
       icon: <Github size={24} />,
       name: "GitHub",
-      url: "#",
+      url: "https://github.com/Chaitanya0699",
       color: "hover:text-gray-900 hover:bg-gray-50"
     },
     {
-      icon: <Dribbble size={24} />,
+      icon: <Figma size={24} />,
       name: "Dribbble",
-      url: "#",
+      url: "https://www.figma.com/design/dtpxF00H2bfrXVjDQij07R/My-Portfolio?node-id=0-1&t=eVejd1hzrhZOUB2J-1",
       color: "hover:text-pink-600 hover:bg-pink-50"
     }
   ];
@@ -89,10 +95,6 @@ const Contact = () => {
             Ready to Create Something
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"> Amazing?</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            I'm Chaitanya Pajjuri, and I'm always excited to discuss new projects, creative ideas, or opportunities
-            to be part of your vision. Let's turn your ideas into beautiful, functional designs.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -148,20 +150,45 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                As a growing UI/UX designer with 1.5 years of experience, I'm eager to take on new challenges
-                and collaborate on exciting projects. Whether you have a specific project in mind or just want
-                to chat about design, I'd love to hear from you!
+                I'm Chaitanya Pajjuri, a passionate UI/UX designer with {experienceInYears} years 
+                of experience, always eager to take on new challenges and collaborate
+                on exciting projects. I’m driven by a love for creating beautiful, 
+                functional designs that bring ideas to life. Whether you have a 
+                specific project in mind or simply want to explore creative 
+                possibilities, I’d love to connect and be a part of your vision.
               </p>
             </div>
 
             <div className="space-y-6">
-              {/* contactInfo.map here */}
+              {contactInfo.map((info, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div>{info.icon}</div>
+                  <div>
+                    <h4 className="text-white font-semibold">{info.title}</h4>
+                    {info.link ? (
+                      <a href={info.link} className="text-gray-300 hover:underline">{info.value}</a>
+                    ) : (
+                      <p className="text-gray-300">{info.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Connect With Me</h4>
               <div className="flex space-x-4">
-                {/* socialLinks.map here */}
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-white p-3 rounded-full transition-colors ${social.color}`}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -185,10 +212,11 @@ const Contact = () => {
                 href="https://wa.me/917036650028?text=Hi%20Chaitanya%2C%20I%27m%20interested%20in%20connecting%20with%20you%20via%20WhatsApp."
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full"
               >
                 <button className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center hover:bg-white/20 transition-colors group w-full">
                   <FaWhatsapp className="text-green-400 mx-auto mb-2 group-hover:scale-110 transition-transform" size={24} />
-                  <p className="text-white font-medium text-sm">Whatsapp</p>
+                  <p className="text-white font-medium text-sm">WhatsApp</p>
                 </button>
               </a>
             </div>

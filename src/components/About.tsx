@@ -1,21 +1,25 @@
 import React from 'react';
 import { User, Target, Heart, Award, GraduationCap, Briefcase } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 const About = () => {
+  const startDate = new Date('2024-04-01'); // Replace with your real start date
+  const now = new Date();
+  const experienceInYears = ((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365)).toFixed(1);
   const education = [
+      {
+      degree: "Full Stack Developer Certification",
+      institution: "NxtWave",
+      year: "2023-2024",
+      description: "Completed Full Stack Developer program at NxtWave CCBP, gaining hands-on experience in software development."
+    },
     {
       degree: "B'Tech in Mechanical Engineering",
       institution: "Lakireddy BaliReddy College of Engineering",
       year: "2016 - 2023",
       description: "Mechanical Engineering: Designing and optimizing mechanical systems to drive innovation and efficiency."
-    },
-    {
-      degree: "Full Stack Developer Certification",
-      institution: "NxtWave",
-      year: "2023-2024",
-      description: "Completed Full Stack Developer program at NxtWave CCBP, gaining hands-on experience in software development."
-
     }
+  
   ];
 
   const experience = [
@@ -31,18 +35,17 @@ const About = () => {
           Novisync India Pvt Ltd (Cadrac Labs)
         </a>
       ),
-    period: "April 2024 - Present",
-    description: "Leading design initiatives for mobile and web applications, conducting user research, and creating design systems.",
-    achievements: [
-      "Delivered 15+ layouts and UI flows across 4 apps, resulting in a 28% increase in completion rate.",
-      "Developed responsive wireframes and interactive prototypes, reducing revision cycles by 22%.",
-      "Participated in 6+ agile sprints with developers, achieving 98% accuracy in UI implementation.",
-      "Led usability testing that identified 20+ UX issues, enhancing navigational clarity.",
-      "Introduced a component-based design system, which reduced front-end build time by 35%.",
-      "Applied analytics insights to improve UI, leading to a 17% reduction in bounce rate on key pages."
-    ]
-    },
-    
+      period: "April 2024 - Present",
+      description: "Leading design initiatives for mobile and web applications, conducting user research, and creating design systems.",
+      achievements: [
+        "Delivered 15+ layouts and UI flows across 4 apps, resulting in a 28% increase in completion rate.",
+        "Developed responsive wireframes and interactive prototypes, reducing revision cycles by 22%.",
+        "Participated in 6+ agile sprints with developers, achieving 98% accuracy in UI implementation.",
+        "Led usability testing that identified 20+ UX issues, enhancing navigational clarity.",
+        "Introduced a component-based design system, which reduced front-end build time by 35%.",
+        "Applied analytics insights to improve UI, leading to a 17% reduction in bounce rate on key pages."
+      ]
+    }
   ];
 
   return (
@@ -55,78 +58,81 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto rounded-full"></div>
         </div>
 
-     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-  {/* Who I Am (left) */}
-  <div>
-    <div className="space-y-6">
-      <div className="flex items-center gap-3 text-purple-600">
-        <User size={24} />
-        <h3 className="text-2xl font-semibold">Who I Am</h3>
-      </div>
-      <p className="text-gray-600 text-lg leading-relaxed">
-        I'm Chaitanya Pajjuri, a passionate UI/UX designer with 1.3 years of experience in building digital
-        experiences that are both visually engaging and user-centered. My journey into design began with a
-        curiosity about how people interact with technology — a curiosity that has grown into a deep 
-        dedication to solving real user problems through intuitive, functional, and aesthetically clean
-        interfaces.
-      </p>
-      <p className="text-gray-600 text-lg leading-relaxed">
-        I believe great design should feel effortless. Whether it’s a mobile app or a web platform, my goal 
-        is always the same: create experiences that feel natural, purposeful, and genuinely helpful.
-      </p>
-      <p className="text-gray-600 text-lg leading-relaxed">
-        Each project I take on is more than just pixels — it’s about creating meaningful connections between
-        users and products.
-      </p>
-    </div>
-  </div>
-  {/* Visual Element (right) */}
-  <div className="flex justify-center">
-    <div className="relative">
-      <div className="w-80 h-80 bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center">
-        <div className="text-8xl">👨‍💻</div>
-      </div>
-      {/* Floating Stats */}
-      <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100">
-        <div className="flex items-center gap-2">
-          <Award className="text-yellow-500" size={20} />
+        {/* Who I Am Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div>
-            <div className="font-bold text-gray-900">15+</div>
-            <div className="text-xs text-gray-500">Projects</div>
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 text-purple-600">
+                <User size={24} />
+                <h3 className="text-2xl font-semibold">Who I Am</h3>
+              </div>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                I'm Chaitanya Pajjuri, a passionate UI/UX designer with {experienceInYears} years of experience in building digital
+                experiences that are both visually engaging and user-centered. My journey into design began with a
+                curiosity about how people interact with technology — a curiosity that has grown into a deep 
+                dedication to solving real user problems through intuitive, functional, and aesthetically clean
+                interfaces.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                I believe great design should feel effortless. Whether it’s a mobile app or a web platform, my goal 
+                is always the same: create experiences that feel natural, purposeful, and genuinely helpful.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Each project I take on is more than just pixels — it’s about creating meaningful connections between
+                users and products.
+              </p>
+            </div>
+          </div>
+
+          {/* Visual Element with Spline */}
+          <div className="flex justify-center">
+            <div className="relative">
+              <div className="w-80 h-80 bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center overflow-hidden">
+                <Spline scene="https://prod.spline.design/zB0opzbn7Xw-a5rW/scene.splinecode" />
+              </div>
+
+              {/* Floating Stats */}
+              <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100">
+                <div className="flex items-center gap-2">
+                  <Award className="text-yellow-500" size={20} />
+                  <div>
+                    <div className="font-bold text-gray-900">15+</div>
+                    <div className="text-xs text-gray-500">Projects</div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100">
+                <div className="flex items-center gap-2">
+                  <Heart className="text-red-500" size={20} />
+                  <div>
+                    <div className="font-bold text-gray-900">8+</div>
+                    <div className="text-xs text-gray-500">Happy Clients</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100">
-        <div className="flex items-center gap-2">
-          <Heart className="text-red-500" size={20} />
-          <div>
-            <div className="font-bold text-gray-900">8+</div>
-            <div className="text-xs text-gray-500">Happy Clients</div>
+
+        {/* My Approach Section */}
+        <div className="mb-20">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3 text-purple-600">
+              <Target size={24} />
+              <h3 className="text-2xl font-semibold">My Approach</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+                <h4 className="font-semibold text-gray-900 mb-2">User-Centered</h4>
+                <p className="text-gray-600 text-sm">Every design decision is backed by user research and testing</p>
+              </div>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+                <h4 className="font-semibold text-gray-900 mb-2">Collaborative</h4>
+                <p className="text-gray-600 text-sm">Working closely with developers and stakeholders</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-{/* My Approach (full width below) */}
-<div className="mb-20">
-  <div className="space-y-6">
-    <div className="flex items-center gap-3 text-purple-600">
-      <Target size={24} />
-      <h3 className="text-2xl font-semibold">My Approach</h3>
-    </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
-        <h4 className="font-semibold text-gray-900 mb-2">User-Centered</h4>
-        <p className="text-gray-600 text-sm">Every design decision is backed by user research and testing</p>
-      </div>
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
-        <h4 className="font-semibold text-gray-900 mb-2">Collaborative</h4>
-        <p className="text-gray-600 text-sm">Working closely with developers and stakeholders</p>
-      </div>
-    </div>
-  </div>
-</div>
 
         {/* Education Section */}
         <div className="mb-20">

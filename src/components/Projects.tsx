@@ -10,7 +10,7 @@ const Projects = () => {
       category: "Mobile Design",
       type: "Mobile",
       description: "Redesigned user flow for a food delivery app, focusing on reducing order completion time by 40%.",
-      image: "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: " np",
       tags: ["UI/UX", "Mobile", "Figma", "User Research"],
       color: "from-orange-500 to-red-600",
       featured: true
