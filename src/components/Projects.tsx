@@ -6,14 +6,14 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Food Delivery Mobile App",
+      title: "The Rasoi Food Delivery App",
       category: "Mobile Design",
       type: "Mobile",
-      description: "Redesigned user flow for a food delivery app, focusing on reducing order completion time by 40%.",
-      image: " np",
+      description: "Rasoi brings delicious, home-style meals to your doorstep. Discover local kitchens, order fresh food, and enjoy authentic taste anytime, anywhere.",
+      image: "/rasoi.png",
       tags: ["UI/UX", "Mobile", "Figma", "User Research"],
       color: "from-orange-500 to-red-600",
-      featured: true
+      featured: false
     },
     {
       title: "Personal Finance Dashboard",
@@ -36,12 +36,12 @@ const Projects = () => {
       featured: true
     },
     {
-      title: "Fitness Tracking App",
+      title: "My Help",
       category: "Mobile Design",
       type: "Mobile",
-      description: "Motivational fitness app design with gamification elements and social features.",
-      image: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tags: ["Fitness", "Mobile", "Gamification"],
+      description: "A trusted companion for everyday help — from medical support to travel, daily care, and emotional wellbeing, all in one easy-to-use app.",
+      image: "/my help.png",
+      tags: ["Service", "Mobile", "Figma", "User Experience"],
       color: "from-pink-500 to-rose-600",
       featured: false
     },
